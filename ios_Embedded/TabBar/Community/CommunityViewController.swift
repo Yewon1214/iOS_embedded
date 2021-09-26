@@ -58,7 +58,6 @@ class CommunityViewController: UIViewController {
                         do{
                             let data = try JSONSerialization.data(withJSONObject: a, options: .prettyPrinted)
                             let r = try JSONDecoder().decode(Result.self, from: data)
-                            //배열에 넣기
                             if message == "자동차 사고" {
                                 self.carAccidentResults.append(r)
                             }
@@ -119,7 +118,6 @@ class CommunityViewController: UIViewController {
     func pageChange() {
         self.pageView.communityCellTapEvent
             .subscribe(onNext: { index in
-                //배열 정보를 넘겨야 함
               let page = CommunityDetailViewController()
                 self.navigationController?.pushViewController(page, animated: true)
                 if self.filteredResults.isEmpty { //검색어 필터 적용된 리스트 비어있는지 확인
@@ -137,7 +135,6 @@ class CommunityViewController: UIViewController {
         self.navigationItem.title = "커뮤니티"
         self.navigationItem.hidesSearchBarWhenScrolling = true
         self.navigationController?.navigationBar.barTintColor = UIColor(displayP3Red: 235/255, green: 251/255, blue: 255/255, alpha: 1)
-        //검색창 계속 보이게 설정 -> 숨김 x
         self.navigationItem.hidesSearchBarWhenScrolling = false
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.obscuresBackgroundDuringPresentation = true
@@ -147,7 +144,6 @@ class CommunityViewController: UIViewController {
     }
     
     func searchBarIsEmpty() -> Bool {
-      // Returns true if the text is empty or nil
       return searchController.searchBar.text?.isEmpty ?? true
     }
       

@@ -18,6 +18,8 @@ class MapView: UIView, CLLocationManagerDelegate, GMSMapViewDelegate{
     private var mapView: GMSMapView = .init()
     private var locationManager: CLLocationManager = .init()
     private let searchButton: UIButton = .init()
+    private let marker = GMSMarker()
+    
     internal var searchBtnClickEvent: PublishRelay<Void> = .init()
     
     let disposeBag: DisposeBag = .init()
@@ -44,9 +46,7 @@ class MapView: UIView, CLLocationManagerDelegate, GMSMapViewDelegate{
                 $0.top.equalToSuperview()
                 $0.bottom.equalToSuperview()
             }
-            //원래 내위치로 가는 버튼
             $0.settings.myLocationButton = true
-            //내 위치 표시 파란점
             $0.isMyLocationEnabled = true
             $0.settings.allowScrollGesturesDuringRotateOrZoom = true
         }
@@ -71,13 +71,10 @@ class MapView: UIView, CLLocationManagerDelegate, GMSMapViewDelegate{
     
     func displaylocation(){
         locationManager.delegate = self
-        //앱이 실행될 때 위치 추적 권한 요청
         locationManager.requestAlwaysAuthorization()
-        //배터리에 맞게 권장되는 최적의 정확도
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         if CLLocationManager.locationServicesEnabled(){
-        //위치 업데이트
             locationManager.startUpdatingLocation()
             move(at: locationManager.location?.coordinate)
         }
@@ -89,8 +86,6 @@ class MapView: UIView, CLLocationManagerDelegate, GMSMapViewDelegate{
             return
         }
         
-        //위, 경도 가져오기
-        print(coordinate.latitude, coordinate.longitude, "DDD")
         let latitude = coordinate.latitude
         let longitude = coordinate.longitude
         
@@ -99,15 +94,12 @@ class MapView: UIView, CLLocationManagerDelegate, GMSMapViewDelegate{
 
     }
     
-    //검색한 곳 마커 띄우기
     func movetoSearch(at coordinate: CLLocationCoordinate2D?, place: GMSPlace){
         guard let coordinate = coordinate else {
             return
         }
         mapView.clear()
-        
-        //위, 경도 가져오기
-        print(coordinate.latitude, coordinate.longitude, "AAA")
+    
         let latitude = coordinate.latitude
         let longitude = coordinate.longitude
         
