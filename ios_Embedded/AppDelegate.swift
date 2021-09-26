@@ -43,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate{
-    //앱이 실행중이고 사용자가 알림을 눌렀을 때
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("willpresent")
         
@@ -52,7 +51,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         alertEvent.accept(())
     }
     
-    //앱은 백그라운드에 있고 사용자가 알림을 눌렀을 때
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
 
         completionHandler()

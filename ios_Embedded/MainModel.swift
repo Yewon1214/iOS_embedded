@@ -20,7 +20,7 @@ final class UserModel {
     
     var users: [User] = [
         User(email: "minjun@naver.com", password: "1234", name: "최민준", carName: "붕붕쓰", carRealName: "맥라렌", carNumber: "40가1234", carImage: "mclarenImage" ),
-        User(email: "yewon@naver.com", password: "1234", name: "허예원", carName: "구름이", carRealName: "Avante", carNumber: "가1234", carImage: "avanteImage")
+        User(email: "yewon@naver.com", password: "1234", name: "허예원", carName: "구름이", carRealName: "Avante", carNumber: "1234가", carImage: "avanteImage")
     ]
     
     // 아이디 형식 검사

@@ -15,7 +15,6 @@ class MapViewController: UIViewController{
     
     //MARK: - Properties
     private let pageView: MapView = .init()
-    private let searchVC: UISearchController = .init()
     
     let disposeBag: DisposeBag = .init()
     
@@ -48,8 +47,7 @@ extension MapViewController: GMSAutocompleteViewControllerDelegate{
     func viewController(_ viewController:
                             GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         self.pageView.movetoSearch(at: place.coordinate, place: place)
-        
-        //dismiss
+
         dismiss(animated: true, completion: nil)
     }
     
