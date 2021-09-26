@@ -41,13 +41,6 @@ app.post('/accident', function(req, res){
     io.emit("accident", "true");
 });
 
-app.get('/', function(req, res){
-    io.emit("accident", "true");
-    report.mapX = 37.4763121;
-    report.mapY = 126.9021;
-    res.send("<h1>WELCOME</h1>");
-});
-
 io.on('connection', (socket) => { 
     console.log('*** test connected ***'); 
     console.log(socket.id) 
@@ -88,7 +81,6 @@ io.on('connection', (socket) => {
             {question:{$regex: data}}
         ]}, function(err, r){
             if(err) console.log(err);
-            //console.log(r);
             socket.emit("community_init1", r);
         });
     });
@@ -101,7 +93,6 @@ io.on('connection', (socket) => {
             {question:{$regex: data}}
         ]}, function(err, r){
             if(err) console.log(err);
-            //console.log(r);
             socket.emit("community_init2", r);
         });
     });
@@ -114,7 +105,6 @@ io.on('connection', (socket) => {
             {question:{$regex: data}}
         ]}, function(err, r){
             if(err) console.log(err);
-            //console.log(r);
             socket.emit("community_init3", r);
         });
     });
@@ -127,7 +117,6 @@ io.on('connection', (socket) => {
             {question:{$regex: data}}
         ]}, function(err, r){
             if(err) console.log(err);
-            //console.log(r);
             socket.emit("community_init4", r);
         });
     });
