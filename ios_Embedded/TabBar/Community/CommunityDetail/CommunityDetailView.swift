@@ -54,7 +54,8 @@ class CommunityDetailView: UIView {
                 $0.trailing.equalTo(safeAreaLayoutGuide.snp.trailing)
             }
         }
-        
+        // contentLayoutGuide -> ScrollView에 들어갈 Content의 전체영역이다.
+        // frameLayoutGuide -> ScrollView의 Frame에 해당하는 영역
         self.contentView.do {
             self.backgroundColor = UIColor(displayP3Red: 235/255, green: 251/255, blue: 255/255, alpha: 1)
             vscrollView.addSubview($0)
