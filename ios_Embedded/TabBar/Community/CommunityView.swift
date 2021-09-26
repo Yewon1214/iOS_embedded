@@ -31,6 +31,7 @@ class CommunityView: UIView {
         self.setAppearance()
     }
     
+    //MARK: - View 
     func setAppearance() {
         self.backgroundColor = UIColor(displayP3Red: 235/255, green: 251/255, blue: 255/255, alpha: 1)
         

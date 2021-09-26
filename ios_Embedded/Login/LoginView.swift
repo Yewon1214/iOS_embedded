@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import SocketIO
 
+//MARK: - Singleton으로 User Instance 생성
 class UserInfo {
     static let shared = UserInfo()
     
@@ -47,7 +48,6 @@ class LoginView: UIView {
     
     var userModel = UserModel()
     var userInfo = UserInfo.shared
-
 
     //MARK: - LifeCycle
 
@@ -172,33 +172,7 @@ class LoginView: UIView {
                 $0.centerX.equalToSuperview()
             }
         }
-        
-        //****** 테스트 버튼임 ******
-//        self.testBtn.do {
-//            self.addSubview($0)
-//            $0.backgroundColor = .white
-//            $0.setTitle("테스트 버튼", for: .normal)
-//            $0.setTitleColor(.black, for: .normal)
-//            $0.layer.cornerRadius = 15
-//            $0.snp.makeConstraints {
-//                $0.top.equalTo(regiButton.snp.bottom).offset(30)
-//                $0.height.equalTo(40)
-//                $0.width.equalToSuperview().offset(-100)
-//                $0.centerX.equalToSuperview()
-//            }
-//            $0.rx.tap.bind {
-//                self.userInfo.email = "minjun@naver.com"
-//                self.userInfo.password = "1234"
-//                self.userInfo.carName = "붕붕쓰"
-//                self.userInfo.carNumber = "40가 1234"
-//                self.userInfo.name = "최민준"
-//                self.userInfo.carRealName = "맥라렌"
-//                self.userInfo.carImage = "mclarenImage"
-//                self.loginBtnClickEvent.accept(())
-//            }.disposed(by: disposeBag) //메모리 해제
-//        }
     }
-    //****** 테스트 버튼임 ******
     
     //MARK: - login Method
     func loginCheck(id: String, pwd: String) -> Bool {

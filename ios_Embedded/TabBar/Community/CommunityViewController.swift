@@ -34,9 +34,7 @@ class CommunityViewController: UIViewController {
     private let disposeBag: DisposeBag = .init()
     
     internal var filteredResults = [Result]()
-
-    var searchPoint = 0
-
+    
     //MARK: - LifeCycle
     override func loadView() {
         self.view = pageView.self
@@ -132,7 +130,7 @@ class CommunityViewController: UIViewController {
             }).disposed(by: disposeBag)
     }
     
-    //MARK: - searchConf
+    //MARK: - SearchBar Conf
     func searchBarConf(){
 
         self.navigationItem.searchController = searchController

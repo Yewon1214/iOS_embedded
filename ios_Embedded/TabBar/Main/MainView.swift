@@ -10,6 +10,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
+//스크롤 형태를 열거형으로
 enum ScrollCase {
     case able
     case unable
@@ -18,12 +19,12 @@ enum ScrollCase {
 class MainView: UIView {
     //MARK: - Properties
     
-    //MARK: - 전체 ScrollView
+    //MARK: 전체 ScrollView
     private let vscrollView: UIScrollView = .init()
     private let contentView: UIView = .init()
     private let vstackView: UIStackView = .init()
     
-    //MARK: - Info
+    //MARK: Info
     private let infoHstackView: UIStackView = .init()
     private let infoImageView: UIButton = .init()
     private let infoNameLabel: UILabel = .init()
@@ -31,12 +32,12 @@ class MainView: UIView {
     //벨 구분 플래그
     private var infoRightBtnFlag = 0
     
-    //MARK: - Main
+    //MARK: Main
     private let mainHstackView: UIStackView = .init()
     private let mainLabel: UILabel = .init()
     private let mainBtnImageView: UIImageView = .init()
     
-    //MARK: - Car Info
+    //MARK: Car Info
     private let carInfoVstackView: UIStackView = .init()
     
     private let carInfoHstackView: UIStackView = .init()
@@ -50,7 +51,7 @@ class MainView: UIView {
     private let carNameLabel: UILabel = .init()
     private let carRealNameLabel: UILabel = .init()
     
-    //MARK: - AD Image
+    //MARK: AD Image
     private let adScrollView: UIScrollView = .init()
     private let innerView: UIView = .init()
     private let adPageControl: UIPageControl = .init()
@@ -71,7 +72,7 @@ class MainView: UIView {
         self.setAppearance()
     }
     
-    //스크롤 셋팅 메소드
+    //MARK: - 스크롤 셋팅 메소드
     func settingScroll(_ isScroll: ScrollCase) {
         switch isScroll {
         case .able :
@@ -142,6 +143,7 @@ class MainView: UIView {
             $0.tintColor = .black
         }
         self.infoHstackView.setCustomSpacing(10, after: infoImageView)
+        
         self.infoNameLabel.do {
             infoHstackView.addArrangedSubview($0)
             $0.snp.makeConstraints {

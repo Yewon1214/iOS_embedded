@@ -22,30 +22,29 @@ class MainViewController: UIViewController {
     //MARK: - LifeCycle
     override func loadView() {
         self.view = pageView.self
-        //민준
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.navigationConf()
         self.navigationController?.navigationBar.isHidden = true
         self.pageEvent()
         self.alertEvent()
     }
     
-    func alertEvent(){
-        self.appDelegate.alertEvent.subscribe(onNext:{
-            self.makeAccidentAlert()
-        }).disposed(by: disposeBag)
-    }
-    
-    //MARK: - pageEvent
+    //MARK: - PageEvent
     func pageEvent() {
         self.pageView.carInfoBtnEvent
             .subscribe(onNext: {
                 let page = UserInfoViewController()
                 self.navigationController?.pushViewController(page, animated: true)
             }).disposed(by: disposeBag)
+    }
+    
+    //MARK: - Accident Alert
+    func alertEvent(){
+        self.appDelegate.alertEvent.subscribe(onNext:{
+            self.makeAccidentAlert()
+        }).disposed(by: disposeBag)
     }
     
     func makeAccidentAlert(){
