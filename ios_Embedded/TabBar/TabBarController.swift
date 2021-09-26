@@ -17,7 +17,8 @@ class TabBarController: UITabBarController {
         let vc1 = MainViewController()
         let vc2 = CommunityViewController()
         let vc3 = MapViewController()
-
+        
+        //MARK: - Socket
         vc2.socketManager("community_init1", "자동차 사고")
         vc2.socketManager("community_init2", "범퍼")
         vc2.socketManager("community_init3", "와이퍼")

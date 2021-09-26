@@ -92,7 +92,6 @@ class CommunityDetailView: UIView {
             $0.alignment = .fill
             $0.distribution = .fill
         }
-        
         self.titleLabel.do {
             self.vstackView.addArrangedSubview($0)
             $0.font = UIFont(name:"HelveticaNeue-Bold", size: 20.0)
@@ -145,7 +144,6 @@ class CommunityDetailView: UIView {
             $0.alignment = .fill
             $0.distribution = .fill
         }
-        
         self.answerLabel.do {
             self.vstackView2.addArrangedSubview($0)
             $0.numberOfLines = 0
@@ -170,6 +168,5 @@ class CommunityDetailView: UIView {
         
         let date = model[index].date?.components(separatedBy: "\n")
         self.dateLabel.text = "작성일: \(date?[1] ?? "")"
-
     }
 }

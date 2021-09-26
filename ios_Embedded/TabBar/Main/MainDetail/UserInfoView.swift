@@ -31,6 +31,7 @@ class UserInfoView: UIView {
         self.setAppearance()
     }
     
+    //MARK: - View
     private func setAppearance() {
         
         self.backgroundColor = UIColor(displayP3Red: 235/255, green: 251/255, blue: 255/255, alpha: 1)
@@ -72,6 +73,7 @@ class UserInfoView: UIView {
             }
             $0.image = UIImage(named: "personDefault")
         }
+        
         self.nameLabel.do {
             self.infoView.addSubview($0)
             $0.snp.makeConstraints {

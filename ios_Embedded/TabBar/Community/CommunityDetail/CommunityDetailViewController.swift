@@ -15,7 +15,6 @@ class CommunityDetailViewController: UIViewController {
     //MARK: - LifeCycle
     override func loadView() {
         self.view = pageView.self
-        
     }
     
     override func viewDidLoad() {

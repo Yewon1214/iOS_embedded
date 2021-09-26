@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import RxSwift
 
+//MARK: - Community에 필요한 model 정의
 struct CommnuityListCellModel {
     var title: String?
     var date: String?
@@ -31,7 +32,7 @@ class CommunityListCell: UITableViewCell {
     private let answerNumLabel: UILabel = .init()
     private let dateLabel: UILabel = .init()
     
-    // Object LifeCycle
+    //MARK: - Object LifeCycle
     required init?(coder: NSCoder) {
         fatalError()
     }
@@ -66,14 +67,12 @@ class CommunityListCell: UITableViewCell {
             $0.alignment = .fill
             $0.distribution = .fillEqually
         }
-        
         self.vstackView2.do {
             self.vstackView.addArrangedSubview($0)
             $0.axis = .horizontal
             $0.alignment = .fill
             $0.distribution = .fill
         }
-        
         self.titleLabel.do {
             vstackView2.addArrangedSubview($0)
             $0.snp.makeConstraints {
@@ -84,7 +83,6 @@ class CommunityListCell: UITableViewCell {
             $0.font = .systemFont(ofSize: 14)
             $0.setContentHuggingPriority(.defaultHigh, for: .vertical)
         }
-        
         self.answerLabel.do {
             vstackView.addArrangedSubview($0)
             $0.snp.makeConstraints {
@@ -94,7 +92,6 @@ class CommunityListCell: UITableViewCell {
             $0.numberOfLines = 3
             $0.font = .systemFont(ofSize: 13)
         }
-        
         self.hstackView.do {
             vstackView.addArrangedSubview($0)
             $0.axis = .horizontal
