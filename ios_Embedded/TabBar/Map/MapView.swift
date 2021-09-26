@@ -72,9 +72,11 @@ class MapView: UIView, CLLocationManagerDelegate, GMSMapViewDelegate{
     func displaylocation(){
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
+        //배터리에 맞게 권장되는 최적의 정확도
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         if CLLocationManager.locationServicesEnabled(){
+            //위치 업데이트
             locationManager.startUpdatingLocation()
             move(at: locationManager.location?.coordinate)
         }
