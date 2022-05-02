@@ -5,4 +5,4 @@
 
 
 ## 참고 
-<a href ="https://github.com/catSirup/naver_kin_crawling">크롤링 깃허브</a>
+<a href ="https://github.com/catSirup/naver_kin_crawling">크롤링</a>
